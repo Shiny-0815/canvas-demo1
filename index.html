@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="canvas"></div>
+
+    <script>
+        var div1 = document.getElementById('canvas')
+        flag = false
+        //press
+        div1.onmousedown = function (a) {
+            flag = true
+            var x = a.clientX
+            var y = a.clientY
+            var div2 = document.createElement('div')
+            div2.style = "width:6px; height:6px; border-radius:3px;" +
+                "position:absolute; background: black;" +
+                "top:" + (y - 3) + "px;" +
+                "left:" + (x - 3) + "px;"
+            div1.appendChild(div2)
+        }
+        div1.onmousemove = function (a) {
+            if (flag) {
+                var x = a.clientX
+                var y = a.clientY
+                var div2 = document.createElement('div')
+                div2.style = "width:6px; height:6px; border-radius:3px;" +
+                    "position:absolute; background: black;" +
+                    "top:" + (y - 3) + "px;" +
+                    "left:" + (x - 3) + "px;"
+                div1.appendChild(div2)
+            } else {
+
+            }
+
+        }
+        div1.onmouseup = function (a) {
+            flag = false
+        }
+    </script>
+</body>
+
+</html>
